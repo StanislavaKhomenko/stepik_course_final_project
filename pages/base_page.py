@@ -1,4 +1,5 @@
 from .locators import BasePageLocators
+from .locators import BasketPageLocators
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 from selenium.common.exceptions import TimeoutException
@@ -60,3 +61,7 @@ class BasePage():
             return False
 
         return True
+
+    def go_to_basket(self):
+        basket_button = self.browser.find_element(*BasketPageLocators.BASKET_BUTTON)
+        basket_button.click()
